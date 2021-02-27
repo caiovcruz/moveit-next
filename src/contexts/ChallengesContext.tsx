@@ -37,10 +37,10 @@ export function ChallengesProvider({
   children,
   ...rest
 }: ChallengesProviderProps) {
-  const [level, setLevel] = useState(rest.level ?? 1);
+  const [level, setLevel] = useState(rest.level);
   const [currentExperience, setCurrentExperience] = useState(0);
-  const [experienceBar, setExperienceBar] = useState(rest.experienceBar ?? 0);
-  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
+  const [experienceBar, setExperienceBar] = useState(rest.experienceBar);
+  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted);
 
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModal, setIsLevelUpModal] = useState(false);
@@ -84,7 +84,7 @@ export function ChallengesProvider({
 
     new Audio('/notification.mp3').play();
 
-    if (Notification.permission === 'granted') {
+    if (Notification.permission === 'granted' && screen.width > 720) {
       new Notification('Novo desafio 🎉', {
         body: `Valendo ${challenge.amount}xp!`
       });

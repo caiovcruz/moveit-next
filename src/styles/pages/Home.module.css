@@ -19,3 +19,14 @@
 .container > div {
   padding: 2rem 0;
 }
+
+@media (max-width: 720px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+  .container section{
+    margin-top: 3rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
